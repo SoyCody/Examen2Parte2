@@ -5,6 +5,7 @@ class Match implements Callable<Player> {
     private final Player player1;
     private final Player player2;
     private final Random random = new Random();
+    private final StringBuilder resultado = new StringBuilder();
 
     public Match(Player player1, Player player2) {
         this.player1 = player1;
@@ -15,7 +16,6 @@ class Match implements Callable<Player> {
     public Player call() throws Exception {
         int setsPlayer1 = 0, setsPlayer2 = 0;
         int setNumber = 1;
-        StringBuilder resultado = new StringBuilder();
 
         resultado.append(player1).append(" vs ").append(player2).append("\n");
 
@@ -34,11 +34,21 @@ class Match implements Callable<Player> {
         Player winner = setsPlayer1 == 2 ? player1 : player2;
         resultado.append("Ganador del partido: ").append(winner).append("\n");
 
-        // Simular duración del partido entre 1.5 y 2 segundos
         double duration = 1.5 + (0.5 * random.nextDouble());
         Thread.sleep((long) (duration * 1000));
 
-        System.out.println(resultado);
         return winner;
+    }
+
+    public String getResultado() {
+        return resultado.toString();
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
     }
 }

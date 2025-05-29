@@ -12,3 +12,15 @@ Jugador 2 vs Jugador 15
 Set 1: Jugador 2
 Set 2: Jugador 2
 Ganador del partido: Jugador 2...
+
+
+
+No uses Collections.shuffle(players); para sortear el orden de los partidos en la primera ronda, haz que en una parte sea el orden de los jugadores a en orden ascendente y los jugadores b en forma descendente. Ejemplo: 
+Jugador 1 vs Jugador 16 
+Jugador 2 vs Jugador 15 
+Jugador 3 vs Jugador 14 y asi sucesivamente 
+
+
+
+
+La salida que me da esta, no es tan preciso el uso del for

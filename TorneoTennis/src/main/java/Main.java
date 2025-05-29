@@ -1,18 +1,28 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Main {
-        public static void main(String[] args) throws Exception {
-            List<Player> players = new ArrayList<>();
-            for (int i = 1; i <= 16; i++) {
-                players.add(new Player(i));
-            }
+    public static void main(String[] args) throws Exception {
+        List<Player> players = new ArrayList<>();
 
-            Collections.shuffle(players);
+        // Jugadores del 1 al 16
+        List<Player> ascendente = new ArrayList<>();
+        List<Player> descendente = new ArrayList<>();
 
-            Tournament tournament = new Tournament();
-            tournament.runTournament(players);
+        for (int i = 1; i <= 8; i++) {
+            ascendente.add(new Player(i));
+        }
+        for (int i = 16; i >= 9; i--) {
+            descendente.add(new Player(i));
         }
 
+        // Emparejar jugador 1 vs 16, 2 vs 15, ...
+        for (int i = 0; i < 8; i++) {
+            players.add(ascendente.get(i));
+            players.add(descendente.get(i));
+        }
+
+        Tournament tournament = new Tournament();
+        tournament.runTournament(players);
+    }
 }
